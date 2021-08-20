@@ -27,44 +27,32 @@ let rRest = restuarant();
 let rTrans = transportation();
 let rEnter = entertainment();
 
-
-
-function randomTrip(str){
-    if(str === "1"){
-        let newDest = rDest;
-        while(curDest == newDest){
-            newDest = rDest;
-        }
-    }
-    if(curDest != newDest){
-        curDest = newDest;
-    }
-    else if(str === "2"){
-        let newRes = rRest;
-        while(curRest == newRes){
-            newRes = rRest;
-        }
-        if(curRest != newRes){
-            curRest = newRes;
-        }
-    }
-    else if(str === "3"){
-        let newTrans = rTrans;
-        while(curTrans == newTrans){
-            newTrans = rTrans;
-        }
-        if(curTrans != newTrans){
-            curTrans = newTrans;
-        }
-    }
-    else if(str === "4"){
-        let newEnter = rEnter;
-        while(curEnter == newEnter){
-            newEnter = rEnter;
-        }
-        if(curEnter != newEnter){
-            curEnter = newEnter
-        }
-    }
+function reDo(){
+    let again = prompt(" Is your trip okay? Enter Y or N")
+    return again;
 }
 
+let info = "Your trip will be in " + rDest + ". You will eat " + rRest + ". Riding in a " +
+rTrans + ", and going to a " + rEnter + "."
+
+alert(info)
+
+let choice = "n"
+
+while(choice != "Y" || choice != "y"){
+    choice = reDo();
+    if(choice === "Y" || choice === "y"){
+        alert("Enjoy your trip!");
+        break;
+    }
+    else if (choice === "N" || choice === "n"){
+        let rDest = destination();
+        let rRest = restuarant();
+        let rTrans = transportation();
+        let rEnter = entertainment();
+
+        let newInfo = "Your new trip is in " + rDest + ". Eating " + rRest + ". Riding in a " + rTrans + ", and going to a " + rEnter + "."
+        alert(newInfo);
+        console.log(newInfo);
+    }
+}
